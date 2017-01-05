@@ -1,4 +1,4 @@
-package com.king.program.pojo;
+package com.king.program.mvc.pojo;
 
 import java.util.Date;
 

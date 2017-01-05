@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+        PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+        "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+    <typeAlias alias="CommodyDO" type="com.king.program.mvc.pojo.CommodyDO"/>
+
+    <insert id="insert_commody" parameterClass="CommodyDO">
+        <![CDATA[
+            insert into commody(url, create_time, price) values(#url#, now(), #price#)
+        ]]>
+    </insert>
+
+    <select id="select_price" parameterClass="String" resultMap="java.util.List">
+        <![CDATA[
+            select * from commody where c_id = #c_id#
+        ]]>
+    </select>
+
+</sqlMap>

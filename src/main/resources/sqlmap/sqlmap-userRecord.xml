@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+        PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+        "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+    <typeAlias alias="UserRecordDO" type="com.king.program.mvc.pojo.UserRecordDO"/>
+
+    <insert id="insert_record" parameterClass="UserRecordDO">
+        <![CDATA[
+            insert into user_record (u_id, c_id, create_time) values(#u_id#, #c_id#, now())
+        ]]>
+    </insert>
+
+    <select id="select_cId" parameterClass="Integer" resultMap="java.util.List">
+        <![CDATA[
+            select c_id from user_record where u_id = #u_id#
+        ]]>
+    </select>
+
+</sqlMap>

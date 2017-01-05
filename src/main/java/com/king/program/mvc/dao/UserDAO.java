@@ -1,6 +1,6 @@
-package com.king.program.dao;
+package com.king.program.mvc.dao;
 
-import com.king.program.pojo.UserDO;
+import com.king.program.mvc.pojo.UserDO;
 
 /**
  * Created by gaohanqing on 2017/1/3.
@@ -13,9 +13,9 @@ public interface UserDAO {
 
     public int query_id(String username);
 
-    public int delete_user(String username);
+    /*public int delete_user(String username);
 
     public int update_username(String username);
 
-    public int update_password(String username);
+    public int update_password(String username);*/
 }

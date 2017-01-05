@@ -1,6 +1,6 @@
-package com.king.program.dao;
+package com.king.program.mvc.dao;
 
-import com.king.program.pojo.UserRecordDO;
+import com.king.program.mvc.pojo.UserRecordDO;
 
 import java.util.List;
 
@@ -11,5 +11,5 @@ public interface UserRecordDAO {
 
     public int insert_record(UserRecordDO userRecordDO);
 
-    public List<UserRecordDO> query_by_uid(int u_id);
+    public List<Integer> query_by_uid(int u_id);
 }

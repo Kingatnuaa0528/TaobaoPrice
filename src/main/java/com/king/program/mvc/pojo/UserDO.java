@@ -1,4 +1,4 @@
-package com.king.program.pojo;
+package com.king.program.mvc.pojo;
 
 /**
  * Created by gaohanqing on 2017/1/3.

@@ -3,11 +3,11 @@
         PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
         "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 <sqlMap>
-    <typeAlias alias="UserDO" type="com.king.program.pojo.UserDO"/>
+    <typeAlias alias="UserDO" type="com.king.program.mvc.pojo.UserDO"/>
 
     <insert id="insert_user" parameterClass="UserDO">
         <![CDATA[
-            insert into attend(username, password) values(#username#, #password#)
+            insert into user(username, password) values(#username#, #password#)
         ]]>
     </insert>
 
@@ -16,4 +16,11 @@
             select password from user where username = #username#
         ]]>
     </select>
+
+    <select id="select_uid" parameterClass="String" resultMap="String">
+        <![CDATA[
+            select u_id from user where username = #username#
+        ]]>
+    </select>
+
 </sqlMap>

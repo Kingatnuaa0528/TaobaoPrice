@@ -1,6 +1,6 @@
-package com.king.program.dao;
+package com.king.program.mvc.dao;
 
-import com.king.program.pojo.CommodyDO;
+import com.king.program.mvc.pojo.CommodyDO;
 
 import java.util.List;
 
