@@ -14,7 +14,7 @@ import javax.annotation.Resource;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(value= "classpath:dataSource.xml")
+@ContextConfiguration(value= "classpath:datasource/dataSource.xml")
 public class UserDAOTest {
 
     @Resource

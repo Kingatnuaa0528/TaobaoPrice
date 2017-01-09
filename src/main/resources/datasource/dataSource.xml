@@ -12,7 +12,7 @@
           class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>classpath:jdbc.properties</value>
+                <value>classpath:datasource/jdbc.properties</value>
             </list>
         </property>
     </bean>
@@ -25,7 +25,7 @@
     </bean>
 
     <bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
-        <property name="configLocation" value="classpath:sqlMapConfig.xml"/>
+        <property name="configLocation" value="classpath:sqlmap/sqlMapConfig.xml"/>
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
