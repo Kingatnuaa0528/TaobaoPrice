@@ -4,6 +4,7 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 import com.king.program.mvc.dao.CommodyDAO;
 import com.king.program.mvc.pojo.CommodyDO;
 import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -12,11 +13,16 @@ import java.util.List;
 /**
  * Created by gaohanqing on 2017/1/5.
  */
+
+@Component
 public class CommodyDAOImpl extends SqlMapClientDaoSupport implements CommodyDAO {
 
-    @Resource(name = "sqlMapClient")
+    @Resource
     private SqlMapClient sqlMapClient;
     @PostConstruct
+    public void initSqlMapClient(){
+        super.setSqlMapClient(sqlMapClient);
+    }
 
     @Override
     public int insert_commody(CommodyDO commodyDO) {
@@ -25,7 +31,7 @@ public class CommodyDAOImpl extends SqlMapClientDaoSupport implements CommodyDAO
     }
 
     @Override
-    public List<CommodyDO> query_byId(int c_id) {
+    public List<CommodyDO> query_commody_byId(int c_id) {
         List<CommodyDO> result = getSqlMapClientTemplate().queryForList("select_price", c_id);
         return result;
     }

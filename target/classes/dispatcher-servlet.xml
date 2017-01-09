@@ -20,5 +20,5 @@
         <property name="contentType" value="text/html; charset=utf-8"/>
     </bean>
 
-    <import resource="classpath:datasource/dataSource.xml"/>
+    <import resource="classpath:dataSource.xml"/>
 </beans>

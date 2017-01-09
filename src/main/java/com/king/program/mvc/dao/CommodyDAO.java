@@ -11,5 +11,5 @@ public interface CommodyDAO {
 
     public int insert_commody(CommodyDO commodyDO);
 
-    public List<CommodyDO> query_byId(int c_id);
+    public List<CommodyDO> query_commody_byId(int c_id);
 }

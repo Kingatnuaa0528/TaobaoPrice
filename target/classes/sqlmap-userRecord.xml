@@ -11,7 +11,7 @@
         ]]>
     </insert>
 
-    <select id="select_cId" parameterClass="Integer" resultMap="java.util.List">
+    <select id="select_cId" parameterClass="java.lang.Integer" resultClass="java.util.List">
         <![CDATA[
             select c_id from user_record where u_id = #u_id#
         ]]>
