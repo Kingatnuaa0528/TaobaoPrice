@@ -7,25 +7,25 @@ import java.util.Date;
  */
 public class UserRecordDO {
 
-    private long u_id;
+    private int u_id;
 
-    private long c_id;
+    private int c_id;
 
     private Date create_time;
 
-    public long getU_id() {
+    public int getU_id() {
         return u_id;
     }
 
-    public void setU_id(long u_id) {
+    public void setU_id(int u_id) {
         this.u_id = u_id;
     }
 
-    public long getC_id() {
+    public int getC_id() {
         return c_id;
     }
 
-    public void setC_id(long c_id) {
+    public void setC_id(int c_id) {
         this.c_id = c_id;
     }
 

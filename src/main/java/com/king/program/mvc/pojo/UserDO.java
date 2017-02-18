@@ -5,11 +5,19 @@ package com.king.program.mvc.pojo;
  */
 public class UserDO {
 
-    private long u_id;
+    private int u_id;
 
     private String username;
 
     private String password;
+
+    public int getU_id() {
+        return u_id;
+    }
+
+    public void setU_id(int u_id) {
+        this.u_id = u_id;
+    }
 
     public String getUsername() {
         return username;
@@ -25,13 +33,5 @@ public class UserDO {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public long getU_id() {
-        return u_id;
-    }
-
-    public void setU_id(long u_id) {
-        this.u_id = u_id;
     }
 }

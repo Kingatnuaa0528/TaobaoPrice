@@ -8,7 +8,7 @@ import java.util.Map;
  */
 public class CommodyDO {
 
-    private String c_id;
+    private int c_id;
 
     private String url;
 
@@ -16,11 +16,11 @@ public class CommodyDO {
 
     private double price;
 
-    public String getC_id() {
+    public int getC_id() {
         return c_id;
     }
 
-    public void setC_id(String c_id) {
+    public void setC_id(int c_id) {
         this.c_id = c_id;
     }
 

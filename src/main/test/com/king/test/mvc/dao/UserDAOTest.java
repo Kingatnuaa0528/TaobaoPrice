@@ -14,7 +14,7 @@ import javax.annotation.Resource;
  */
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(value= "classpath:datasource/dataSource.xml")
+@ContextConfiguration(value= "classpath:dataSource.xml")
 public class UserDAOTest {
 
     @Resource
@@ -23,12 +23,20 @@ public class UserDAOTest {
     @Test
     public void testInsertUser()
     {
-        String username = "test2";
+        String username = "test";
         String password = "test";
         UserDO userDO = new UserDO();
         userDO.setUsername(username);
         userDO.setPassword(password);
         int result = userDAOImpl.insert_user(userDO);
         System.out.println("result :  " + result);
+    }
+
+    @Test
+    public void testSelectUser()
+    {
+        String username = "test";
+        String password = userDAOImpl.query_password(username);
+        System.out.println("result :||" + password +"   " + password.length());
     }
 }

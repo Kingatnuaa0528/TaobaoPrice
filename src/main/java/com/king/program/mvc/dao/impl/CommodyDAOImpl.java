@@ -26,13 +26,20 @@ public class CommodyDAOImpl extends SqlMapClientDaoSupport implements CommodyDAO
 
     @Override
     public int insert_commody(CommodyDO commodyDO) {
-        int result = (Integer)(getSqlMapClientTemplate().insert("insert_commody", commodyDO));
+        Object result = getSqlMapClientTemplate().insert("insert_commody", commodyDO);
+        return (Integer)result;
+    }
+
+    @Override
+    public CommodyDO query_commody_byId(int c_id) {
+        CommodyDO result = (CommodyDO)getSqlMapClientTemplate().queryForObject("select_cid", c_id);
         return result;
     }
 
     @Override
-    public List<CommodyDO> query_commody_byId(int c_id) {
-        List<CommodyDO> result = getSqlMapClientTemplate().queryForList("select_price", c_id);
-        return result;
+    public CommodyDO query_commody_byUrl(String url) {
+        Object result = getSqlMapClientTemplate().queryForObject("select_url", url);
+        if(result == null) return null;
+        else return (CommodyDO)result;
     }
 }

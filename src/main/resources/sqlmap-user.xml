@@ -9,6 +9,9 @@
         <![CDATA[
             insert into user(username, password) values(#username#, #password#)
         ]]>
+        <selectKey resultClass="int" keyProperty="u_id">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
     </insert>
 
     <select id="select_password" parameterClass="java.lang.String" resultClass="java.lang.String">

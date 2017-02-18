@@ -9,12 +9,20 @@
         <![CDATA[
             insert into commody(url, create_time, price) values(#url#, now(), #price#)
         ]]>
+        <selectKey resultClass="int" keyProperty="c_id">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
     </insert>
 
-    <select id="select_price" parameterClass="java.lang.String" resultClass="java.util.List">
+    <select id="select_cid" parameterClass="java.lang.String" resultClass="CommodyDO">
         <![CDATA[
             select * from commody where c_id = #c_id#
         ]]>
     </select>
 
+    <select id="select_url" parameterClass="java.lang.String" resultClass="CommodyDO">
+        <![CDATA[
+            select * from commody where url = #url#
+        ]]>
+    </select>
 </sqlMap>
