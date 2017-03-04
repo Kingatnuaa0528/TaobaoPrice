@@ -5,5 +5,6 @@
     <!-- 这里可以写多个实体的映射文件 -->
     <sqlMap resource="sqlmap-user.xml"/>
     <sqlMap resource="sqlmap-userRecord.xml"/>
-    <sqlMap resource="sqlmap-commody.xml"/>
+    <sqlMap resource="sqlmap-commodyInfo.xml"/>
+    <sqlMap resource="sqlmap-commodyPrice.xml"/>
 </sqlMapConfig>

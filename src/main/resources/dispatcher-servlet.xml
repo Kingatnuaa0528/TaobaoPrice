@@ -22,6 +22,7 @@
 
     <import resource="classpath:dataSource.xml"/>
 
+    <!-- 配置定时任务 -->
     <!--- 配置调度程序quartz ，其中配置JobDetail有两种方式-->
     <!-- 使用MethodInvokingJobDetailFactoryBean，任务类可以不实现Job接口，通过targetMethod指定调用方法-->
     <!-- 定义目标bean和bean中的方法 -->

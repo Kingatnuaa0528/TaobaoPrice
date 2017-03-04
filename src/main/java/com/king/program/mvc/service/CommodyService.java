@@ -1,74 +1,25 @@
 package com.king.program.mvc.service;
 
-import com.king.program.mvc.dao.impl.CommodyDAOImpl;
-import com.king.program.mvc.dao.impl.UserDAOImpl;
-import com.king.program.mvc.dao.impl.UserRecordDAOImpl;
-import com.king.program.mvc.pojo.CommodyDO;
-import com.king.program.mvc.pojo.UserRecordDO;
-import org.springframework.stereotype.Component;
+import com.king.program.mvc.pojo.CommodyInfoDO;
+import com.king.program.mvc.pojo.CommodyPriceDO;
 
-import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by gaohanqing on 2017/1/21.
+ * Created by gaohanqing on 2017/2/20.
  */
+public interface CommodyService {
 
-@Component
-public class CommodyService {
+    //在commody_info表中插入一条新的商品
+    int insertNewCommody(String username, CommodyInfoDO commodyInfoDO);
 
-    @Resource
-    private CommodyDAOImpl commodyDAO;
+    //为一个商品更新其价格，在commody_price中插入一条新的纪录
+    int updateCommodyPrice(CommodyPriceDO commodyPriceDO);
 
-    @Resource
-    private UserDAOImpl userDAO;
+    //获取用户的所有商品
+    List<CommodyInfoDO> getUserCommodies(String username);
 
-    @Resource
-    private UserRecordDAOImpl userRecordDAO;
+    List<CommodyInfoDO> getAllCommodies();
 
-    public int insertCommody(String username, CommodyDO commodyDO)
-    {
-        UserRecordDO userRecordDO = new UserRecordDO();
-        int c_id = -1;
-        int u_id = userDAO.query_id(username);
-        if(u_id == -1) return -1;
-
-        CommodyDO queryResult = commodyDAO.query_commody_byUrl(commodyDO.getUrl());
-
-        if(queryResult != null){
-            c_id = queryResult.getC_id();
-        }
-        else{
-            c_id = commodyDAO.insert_commody(commodyDO);
-        }
-
-        userRecordDO.setC_id(c_id);
-        userRecordDO.setU_id(u_id);
-
-        userRecordDAO.insert_record(userRecordDO);
-        return 1;
-    }
-
-    public List<CommodyDO> getUserCommodies(String username)
-    {
-        int u_id = userDAO.query_id(username);
-        if(u_id == -1) return null;
-
-        List<CommodyDO> result = new ArrayList<CommodyDO>();
-
-        List<Integer> c_idList = userRecordDAO.query_by_uid(u_id);
-
-        for(int i = 0; i < c_idList.size(); i++)
-        {
-            CommodyDO temp = commodyDAO.query_commody_byId(c_idList.get(i));
-            result.add(temp);
-        }
-        return result;
-    }
-
-    public List<CommodyDO> getAllCommodies()
-    {
-
-    }
+    List<CommodyPriceDO> getCommodyHistoryPrice(int c_id);
 }

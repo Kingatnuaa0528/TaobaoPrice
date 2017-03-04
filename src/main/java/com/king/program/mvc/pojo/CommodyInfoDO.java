@@ -6,15 +6,13 @@ import java.util.Map;
 /**
  * Created by gaohanqing on 2017/1/3.
  */
-public class CommodyDO {
+public class CommodyInfoDO {
 
     private int c_id;
 
     private String url;
 
-    private Date create_time;
-
-    private double price;
+    private String title;
 
     public int getC_id() {
         return c_id;
@@ -32,19 +30,11 @@ public class CommodyDO {
         this.url = url;
     }
 
-    public Date getCreate_time() {
-        return create_time;
+    public String getTitle() {
+        return title;
     }
 
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

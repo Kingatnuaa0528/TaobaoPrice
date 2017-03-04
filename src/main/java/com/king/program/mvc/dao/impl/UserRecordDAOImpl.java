@@ -25,8 +25,8 @@ public class UserRecordDAOImpl extends SqlMapClientDaoSupport implements UserRec
 
     @Override
     public int insert_record(UserRecordDO userRecordDO) {
-        Object result = getSqlMapClientTemplate().insert("insert_record", userRecordDO);
-        return (Integer)result;
+        getSqlMapClientTemplate().insert("insert_record", userRecordDO);
+        return 1;
     }
 
     @Override

@@ -1,13 +1,12 @@
 package com.king.test.mvc.dao;
 
-import com.king.program.mvc.dao.impl.CommodyDAOImpl;
-import com.king.program.mvc.pojo.CommodyDO;
+import com.king.program.mvc.dao.CommodyInfoDAO;
+import com.king.program.mvc.pojo.CommodyInfoDO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import javax.annotation.Resource;
 
 /**
  * Created by gaohanqing on 2017/1/22.
@@ -15,19 +14,19 @@ import javax.annotation.Resource;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(value= "classpath:dataSource.xml")
-public class CommodyDAOTest {
+public class CommodyInfoDAOTest {
 
-    @Resource
-    private CommodyDAOImpl commodyDAO;
+    @Autowired
+    private CommodyInfoDAO commodyInfoDAO;
 
     @Test
     public void testInsertCommody()
     {
-        CommodyDO commodyDO = new CommodyDO();
-        commodyDO.setPrice(11.2);
-        commodyDO.setUrl("aaaaaaaa");
+        CommodyInfoDO commodyInfoDO = new CommodyInfoDO();
+        commodyInfoDO.setTitle("aaaaa");
+        commodyInfoDO.setUrl("aaaaaaaa");
 
-        int result = commodyDAO.insert_commody(commodyDO);
+        int result = commodyInfoDAO.insert_commody(commodyInfoDO);
 
         System.out.println(result);
     }
@@ -36,6 +35,6 @@ public class CommodyDAOTest {
     public void testQueryUrl()
     {
         String url = "aaaaa";
-        System.out.println(commodyDAO.query_commody_byUrl(url));
+        System.out.println(commodyInfoDAO.query_commody_byUrl(url));
     }
 }
